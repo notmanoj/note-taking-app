@@ -10,10 +10,63 @@
 <body>
     <div class="container">
         <h1>Simple Note Taking App</h1>
-        <textarea id="notes" placeholder="Start typing your notes here..."></textarea>
+        
+        <div class="edit-panel">
+            <div class="edit-controls-left">
+                <button id="boldToggle" class="edit-btn" title="Make selected text bold">B</button>
+                
+                <select id="fontSize" class="edit-select">
+                    <option value="12">12px</option>
+                    <option value="14" selected>14px</option>
+                    <option value="16">16px</option>
+                </select>
+                
+                <div class="align-group">
+                    <button id="alignLeft" class="edit-btn align-btn" title="Align left">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <line x1="4" y1="6" x2="12" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="4" y1="12" x2="16" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="4" y1="18" x2="14" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <button id="alignCenter" class="edit-btn align-btn" title="Align center">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <line x1="6" y1="6" x2="18" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="4" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="5" y1="18" x2="19" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <button id="alignRight" class="edit-btn align-btn" title="Align right">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <line x1="12" y1="6" x2="20" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="8" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="10" y1="18" x2="20" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <button id="clearNotes" class="edit-btn warning" title="Clear all notes">Clear</button>
+        </div>
+        
+        <div id="notes" class="editor" contenteditable="true" placeholder="Start typing your notes here..."></div>
         <button id="downloadPdf">Download as PDF</button>
         <div id="hintMessage" class="hint" aria-live="polite"></div>
     </div>
+    
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <h2>Clear All Notes?</h2>
+            <p>Are you sure you want to clear all notes? This cannot be undone.</p>
+            <div class="modal-buttons">
+                <button id="confirmYes" class="modal-btn confirm-yes">Yes, Clear</button>
+                <button id="confirmNo" class="modal-btn confirm-no">Cancel</button>
+            </div>
+        </div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
