@@ -70,7 +70,6 @@ h1 {
 }
 
 .modal-overlay {
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -149,14 +148,29 @@ h1 {
 
 .edit-panel {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 0;
+    gap: 10px;
+
     margin-bottom: 12px;
-    padding: 12px 12px;
+    padding: 12px;
     background-color: #f9f0ff;
     border-radius: 8px;
     border: 2px solid #e0b8ff;
+}
+@media (max-width: 768px) {
+    .edit-panel {
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+.edit-panel button {
+    width: auto;          /* important */
+    display: inline-flex; /* keeps alignment clean */
+}
+
+.edit-btn.warning {
+    margin-left: auto;
 }
 
 .edit-controls-left {
@@ -311,8 +325,6 @@ h1 {
     
     .edit-btn.warning {
         margin-left: auto;
-        position: absolute;
-        right: 12px;
     }
     
     .edit-select {
