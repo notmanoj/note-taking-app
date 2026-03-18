@@ -270,7 +270,7 @@ h1 {
     background-color: #ffffff;
     color: #4a1a4f;
     font-family: 'Courier New', monospace;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6;
     box-shadow: inset 0 0 18px rgba(192, 120, 255, 0.25);
     outline: none;
@@ -290,7 +290,39 @@ h1 {
     pointer-events: none;
 }
 
-
+/* Mobile Responsive */
+@media (max-width: 640px) {
+    .container {
+        padding: 12px 12px 20px;
+    }
+    
+    .edit-panel {
+        padding: 8px 0;
+        background-color: transparent;
+        border: none;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    
+    .edit-controls-left {
+        gap: 12px;
+    }
+    
+    .edit-btn.warning {
+        margin-left: auto;
+        position: absolute;
+        right: 12px;
+    }
+    
+    .edit-select {
+        min-width: 70px;
+    }
+    
+    .align-group {
+        gap: 6px;
+    }
+}
 
 textarea {
     width: 100%;

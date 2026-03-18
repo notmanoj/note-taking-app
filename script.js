@@ -233,6 +233,17 @@ downloadButton.addEventListener('click', function() {
     // Extract all styled text nodes
     const styledNodes = processNode(editor);
     
+    // Default to 16px if no nodes found
+    if (styledNodes.length === 0) {
+        const defaultText = editor.textContent.trim();
+        styledNodes.push({
+            text: defaultText,
+            fontSize: 16,
+            bold: false,
+            align: 'left'
+        });
+    }
+    
     // Add text to PDF with styling
     styledNodes.forEach(nodeInfo => {
         doc.setFontSize(nodeInfo.fontSize);
